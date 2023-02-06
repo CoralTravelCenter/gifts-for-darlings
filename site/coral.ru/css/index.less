@@ -1,0 +1,295 @@
+@import "../../common/css/common";
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: 900;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-900-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: bold;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-700-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: normal;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-500-webfont.ttf');
+}
+
+@font-face {
+	font-family: 'museosans';
+	font-weight: 300;
+	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf');
+}
+
+#site-wrap {
+	font-family: museosans;
+	font-weight: normal;
+	h1,h2,h3,h4,h5,h6 {
+		font-weight: 700;
+	}
+	section {
+		&.white {
+			background-color: white;
+		}
+		&.liteblue {
+			background-color: #e6f0f9;
+		}
+		> .contenu {
+			.silly-b2c-font-size(@max-font-size: 20px, @mobile-based-font-size: 24px);
+			font-weight: 300;
+			padding: 3% 0;
+			@media screen and (max-width: @mobile-breakpoint) {
+				padding: 10% 1.5em;
+			}
+			>h2 {
+				font-size: 2em;
+				max-width: 25em;
+				@media screen and (max-width: @mobile-breakpoint) {
+					font-size: 2em;
+					padding: 0;
+				}
+				span.lite {
+					display: block;
+					font-weight: 300;
+				}
+			}
+			p {
+				margin-bottom: 0;
+				> a {
+					font-family: inherit;
+					font-size: inherit;
+					font-weight: inherit;
+					color: inherit;
+					line-height: inherit;
+					text-decoration: underline;
+				}
+			}
+			> p {
+				text-align: center;
+				max-width: 50em;
+			}
+			strong {
+				font-weight: 700;
+			}
+		}
+
+		&.intro {
+			>.contenu {
+				.actions {
+					margin-top: 2em;
+				}
+			}
+		}
+
+		&.calendar {
+			.months-wrap {
+				display: flex;
+				justify-content: center;
+				.month {
+					position: relative;
+					z-index: 0;
+					.silly-b2c-font-size(@max-font-size: 14px, @mobile-based-font-size: 14px);
+					font-weight: 500;
+					background: linear-gradient(109.07deg, #DEE8F9 -28.44%, #F8FBFF 122.57%), #D9D9D9;
+					color: black;
+					border-radius: (20/14em);
+					padding: 1.5em 2em;
+					&:before {
+						content: '';
+						position: absolute;
+						z-index: -1;
+						width: 110%;
+						height: 110%;
+						transform: translate(-5%,-5%);
+						background: url("data-url:/site/coral.ru/assets-inline/month-shade.svg") center no-repeat;
+						background-size: cover;
+					}
+					.name {
+						font-size: (20/14em);
+						line-height: 1;
+						margin-bottom: .5em;
+					}
+					.grid {
+						max-width: (3*7em);
+						span:not([class]) {
+							//border: 1px solid #000;
+							display: inline-flex;
+							align-items: center;
+							justify-content: center;
+							width: 3em;
+							height: 3em;
+							line-height: 1;
+							cursor: default;
+						}
+						span.hilite {
+							background: #DCE7FB;
+							padding: .5em 0;
+							border-radius: .5em;
+							cursor: pointer;
+							.transit(background);
+							&:hover {
+								background-color: #bfd2f5;
+							}
+						}
+						span.weekdays {
+							font-weight: 700;
+							text-transform: uppercase;
+						}
+						span[data-weak] {
+							opacity: .25;
+							font-weight: 300;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}
+
+.actions {
+	>button, >a {
+		font-family: inherit;
+		.interactive;
+		outline: none!important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0 1.5em;
+		height: (48/20em);
+		//background: linear-gradient(45.62deg, #FB7099 0%, #F0AB13 100%);
+		background: #F0AB00;
+		border-radius: 8px;
+		border: 0;
+		color: white!important;
+		cursor: pointer;
+		&.with-down-arrow {
+			&:after {
+				content: '';
+				width: .75em;
+				height: .75em;
+				background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxOCAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3IDFMOC41NjM2NCA5TDEgMSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==") center no-repeat;
+				background-size: contain;
+				margin-left: 1em;
+			}
+		}
+	}
+}
+
+body .subpage-search-bg {
+	> .background {
+		.reset;
+		position: relative;
+		&:before {
+			content: unset;
+		}
+		.video-box {
+			.proportional(1920/711);
+			width: 100%;
+			@media screen and (max-width: @mobile-breakpoint) {
+				.proportional(720/1120);
+			}
+
+			.backdrop {
+				background: url("/site/coral.ru/assets/intro-desktop.jpg") center no-repeat;
+				background-size: cover;
+				@media screen and (max-width: @mobile-breakpoint) {
+					background-image: url(/site/coral.ru/assets/intro-mobile.jpg);
+				}
+			}
+
+			.vimeo-wrap {
+				opacity: 0;
+				.transit(opacity, 1s);
+				&.playback {
+					opacity: 1;
+				}
+				iframe {
+					.abs100x100;
+				}
+			}
+
+			video {
+				object-fit: cover;
+			}
+
+			.info-overlay {
+				.msg {
+					font-family: museosans;
+					font-weight: normal;
+					h1,h2,h3,h4,h5,h6 {
+						font-weight: bold;
+					}
+					.flex-column;
+					justify-content: center;
+					position: absolute;
+					left: 50%;
+					transform: translateX(-682px);
+					height: 100%;
+					max-width: 40em;
+					padding: 13% 0 5%;
+					color: white;
+					.fluid-fontsize(1.5vw);
+					font-weight: normal;
+					@media screen and (max-width: 1439px) {
+						transform: translateX(-564px);
+						font-size: 1.2vw;
+					}
+					@media screen and (max-width: 1199px) {
+						padding-top: 10%;
+						transform: none;
+						left: 5%;
+					}
+					@media screen and (max-width: @mobile-breakpoint) {
+						width: 100%;
+						text-align: center;
+						left: 0;
+						font-size: 4vw;
+						padding: 15% 5%;
+						height: 100%;
+						justify-content: flex-start;
+						align-items: center;
+						p {
+							padding: 0;
+						}
+					}
+					>*:nth-child(n+2) {
+						margin-top: 10%;
+						margin-bottom: 0;
+						@media screen and (max-width: @mobile-breakpoint) {
+							margin-top: 10%;
+						}
+					}
+					h2, h3, h4 {
+						color: inherit;
+						margin: 0;
+						line-height: 1.1;
+					}
+					h2 {
+						display: inline-flex;
+						align-items: center;
+						text-align: left;
+						font-size: (56/21em);
+						line-height: 1;
+						@media screen and (max-width: @mobile-breakpoint) {
+							font-size: 1.7em;
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	}
+	.searchtabsmain {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+	}
+	.bcrumb {
+		display: none!important;
+	}
+}

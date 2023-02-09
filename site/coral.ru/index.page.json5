@@ -1,4 +1,5 @@
 {
+//    env: { optimize: false },
     contents: [
         '/site/coral.ru/components/main.html'
     ]

@@ -54,11 +54,16 @@ Number::zeroPad = (len, c) -> String(@).zeroPad len, c
 
 window.DEBUG = 'APP NAME'
 
+import definedBubbligs from './Bubblings.coffee'
+
 import tt_valentine_markup from 'bundle-text:/site/coral.ru/components/tooltip-valentine.html'
 import tt_army_markup from 'bundle-text:/site/coral.ru/components/tooltip-army.html'
 import tt_march8_markup from 'bundle-text:/site/coral.ru/components/tooltip-march8.html'
 import tt_mar27_02_markup from 'bundle-text:/site/coral.ru/components/tooltip-mar27-02.html'
 import tt_feb18_26_markup from 'bundle-text:/site/coral.ru/components/tooltip-feb18-26.html'
+
+import Bubblings from './Bubblings.coffee'
+
 
 tooltips =
     valentine:
@@ -78,7 +83,11 @@ tooltips =
         options: {}
 
 ASAP ->
+
     $('body .subpage-search-bg > .background').append $('#_intro_markup').html()
+
+    preload 'https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js', ->
+        $(document).on 'click', '[data-scrollto]', -> $(window).scrollTo $(this).attr('data-scrollto'), 500, offset: -150
 
     preload 'https://cdnjs.cloudflare.com/ajax/libs/tooltipster/4.2.8/js/tooltipster.bundle.min.js', ->
         $('[data-holidays]').on
@@ -126,3 +135,5 @@ ASAP ->
             $(entry.target).find('svg').toggleClass 'active', entry.isIntersecting
     , threshold: 1.0
     $('.icon-art').each (idx, el) -> icons_io.observe el
+
+    $('.bubbling').each (idx, el) -> new Bubblings(el)

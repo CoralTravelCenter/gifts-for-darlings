@@ -54,8 +54,6 @@ Number::zeroPad = (len, c) -> String(@).zeroPad len, c
 
 window.DEBUG = 'APP NAME'
 
-import definedBubbligs from './Bubblings.coffee'
-
 import tt_valentine_markup from 'bundle-text:/site/coral.ru/components/tooltip-valentine.html'
 import tt_army_markup from 'bundle-text:/site/coral.ru/components/tooltip-army.html'
 import tt_march8_markup from 'bundle-text:/site/coral.ru/components/tooltip-march8.html'
@@ -136,4 +134,4 @@ ASAP ->
     , threshold: 1.0
     $('.icon-art').each (idx, el) -> icons_io.observe el
 
-    $('.bubbling').each (idx, el) -> new Bubblings(el)
+    $('.bubbling').each (idx, el) -> new Bubblings(el).go()

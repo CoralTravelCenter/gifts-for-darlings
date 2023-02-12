@@ -207,13 +207,30 @@
 						@media screen and (max-width: @mobile-breakpoint) {
 						    flex-direction: column!important;
 						}
+						&:nth-child(odd) {
+							flex-direction: row;
+							.visual-comp .bubbling {
+								left: 50%;
+								top: 50%;
+								transform: translate(-60%,-50%);
+								overflow: hidden;
+							}
+						}
 						&:nth-child(even) {
 							flex-direction: row-reverse;
+							.visual-comp .bubbling {
+								left: 50%;
+								top: 50%;
+								transform: translate(-40%,-50%);
+								overflow: hidden;
+							}
 						}
 						> * {
 							flex: 0 0 50%;
 						}
 						.info {
+							position: relative;
+							z-index: 1;
 							.flex-column;
 							padding: 4em 2em;
 							@media screen and (max-width: @mobile-breakpoint) {
@@ -229,54 +246,39 @@
 							}
 						}
 						.visual-comp {
-							background: #abc;
+							//background: #abc;
+							//border: 1px solid #000;
 							position: relative;
 							@media screen and (max-width: @mobile-breakpoint) {
 								width: 100%;
 							}
 							.bubbling {
-								//.proportional(945/630);
+								//border: 1px solid #000;
 								--overlay: rgb(225, 225, 225);
 								--blur: 32px;
 								--width: 40em;
 								--aspect: (945/638);
-								//width: 110%;
 								width: var(--width);
 								height: calc(~"var(--width) / var(--aspect)");
 								position: absolute;
-								left: auto;
-								right: 0;
-								top: auto;
-								bottom: 0;
 								background: center / cover no-repeat;
 								@media screen and (max-width: @mobile-breakpoint) {
 									position: static;
+									transform: none!important;
 									--width: 20em;
 								}
 								.scene {
 									.abs100x100;
 									background: white;
 									mix-blend-mode: screen;
-
 									.bubble {
 										position: absolute;
+										left: 50%;
+										top: 50%;
+										transform: translate(-50%,-50%);
 										background: black;
 										border-radius: 50%;
 										filter: blur(var(--blur));
-
-										&:nth-child(1) {
-											left: 0;
-											top: 0;
-										}
-
-										&:nth-child(2) {
-											right: 0;
-											bottom: 0;
-										}
-										&:nth-child(3) {
-											right: 0;
-											top: 0;
-										}
 									}
 
 									.overlay {
@@ -384,7 +386,7 @@ body .subpage-search-bg {
 					left: 50%;
 					transform: translateX(-682px);
 					height: 100%;
-					max-width: 42em;
+					width: 35em;
 					padding: 13% 0 5%;
 					color: white;
 					.fluid-fontsize(1.5vw);

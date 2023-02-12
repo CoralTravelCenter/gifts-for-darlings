@@ -24,6 +24,12 @@
 	src: url('https://font.static.useinsider.com/coraltravel/museosanscyrl-300-webfont.ttf');
 }
 
+.etched-glass() {
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 12.8px 57.6px 83.2px #DEE8F9, inset 0px 1.6px 3.2px rgba(0, 0, 0, 0.04), inset -1.6px -6.4px 6.4px rgba(0, 0, 0, 0.06), inset 1.6px 6.4px 6.4px #FFFFFF;
+	backdrop-filter: blur(8px);
+}
+
 #site-wrap {
 	font-family: museosans;
 	font-weight: normal;
@@ -286,6 +292,15 @@
 										.abs100x100;
 										background: linear-gradient(var(--overlay), var(--overlay));
 										mix-blend-mode: color-dodge;
+									}
+								}
+								.something-glassy {
+									.abs100x100;
+									> * {
+										.proportional(1/1);
+										position: absolute;
+										.etched-glass;
+										border-radius: 50%;
 									}
 								}
 							}

@@ -134,4 +134,4 @@ ASAP ->
     , threshold: 1.0
     $('.icon-art').each (idx, el) -> icons_io.observe el
 
-    $('.bubbling').each (idx, el) -> new Bubblings(el).go()
+    $('.bubbling').each (idx, el) -> new Bubblings(el)

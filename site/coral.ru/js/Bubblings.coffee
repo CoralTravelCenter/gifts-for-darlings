@@ -5,8 +5,8 @@ animationLoop = (fn, ctx) ->
     tick = (timestamp) ->
         fn.call(ctx, timestamp - recent_timestamp)
         recent_timestamp = timestamp
-        requestAnimationFrame(tick)
-    requestAnimationFrame(tick)
+        ctx.raf = requestAnimationFrame(tick)
+    ctx.raf = requestAnimationFrame(tick)
     tick
 
 randomInRange = (min,max) -> Math.random() * (max-min) + min
@@ -32,7 +32,7 @@ export default class Bubblings
         @$el.prop 'Bubblings', @
         @init()
     init: () ->
-        @velocity = randomInRange 10/1000, 30/1000
+        me = @
         cover_ratio_max = 0.9
         cover_ratio_min = 0.6
         blur = 32
@@ -49,7 +49,14 @@ export default class Bubblings
             bubble.movement =
                 angle: angles[idx]
                 velocity: velocities[idx]
-        $(window).on 'resize orientationchange', ->
+        @io = new IntersectionObserver (entries, observer) ->
+            for entry in entries
+                if entry.isIntersecting then me.go() else me.stop()
+        , threshold: .38
+        @io.observe @el
+        @
+    stop: () ->
+        cancelAnimationFrame @raf
         @
     go: () ->
         animationLoop (elapsed) ->
@@ -58,8 +65,8 @@ export default class Bubblings
             @$bubbles.each (idx, el) ->
                 mx = fromString(getComputedStyle(el).transform)
                 r = el.getBoundingClientRect()
-                dx = me.velocity * elapsed * Math.cos(el.movement.angle)
-                dy = me.velocity * elapsed * Math.sin(el.movement.angle)
+                dx = el.movement.velocity * elapsed * Math.cos(el.movement.angle)
+                dy = el.movement.velocity * elapsed * Math.sin(el.movement.angle)
                 step_mx = translate(dx, dy)
                 [moved_rect_topleft, moved_rect_bottomright] = applyToPoints step_mx, [
                     { x: r.left, y: r.top }

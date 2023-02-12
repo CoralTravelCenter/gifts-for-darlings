@@ -40,15 +40,15 @@ export default class Bubblings
         h = @$el.height()
         @$bubbles = @$el.find('.bubble')
         angles = distrubuteInRange @$bubbles.length, 0, 2 * Math.PI
+        velocities = distrubuteInRange @$bubbles.length, 10/1000, 20/1000
         @$bubbles.each (idx, bubble) ->
             $bubble = $(bubble)
             cover = randomInRange cover_ratio_min, cover_ratio_max
             dim = h * cover - blur
             $bubble.css width: "#{ (dim / h)/aspect * 100 }%", height: "#{ dim / h * 100 }%"
             bubble.movement =
-#                angle: randomInRange 0, 2 * Math.PI
                 angle: angles[idx]
-                velocity: randomInRange(10,20) / 1000
+                velocity: velocities[idx]
         $(window).on 'resize orientationchange', ->
         @
     go: () ->

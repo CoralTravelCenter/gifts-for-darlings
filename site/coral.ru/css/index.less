@@ -262,9 +262,10 @@
 								height: calc(~"var(--width) / var(--aspect)");
 								position: absolute;
 								background: center / cover no-repeat;
+								mix-blend-mode: multiply;
 								@media screen and (max-width: @mobile-breakpoint) {
 									position: static;
-									transform: none!important;
+									transform: translateZ(0)!important;
 									--width: 20em;
 								}
 								.scene {

@@ -25,6 +25,13 @@ overlaps = (rect, topleft, bottomright) ->
         bottom: bottomright.y > rect.bottom
         right: bottomright.x > rect.right
 
+responsiveHandler = (query, match_handler, unmatch_handler) ->
+    layout = matchMedia query
+    layout.addEventListener 'change', (e) ->
+        if e.matches then match_handler() else unmatch_handler()
+    if layout.matches then match_handler() else unmatch_handler()
+    layout
+
 export default class Bubblings
     constructor: (el) ->
         @el = el
@@ -40,7 +47,7 @@ export default class Bubblings
         h = @$el.height()
         @$bubbles = @$el.find('.bubble')
         angles = distrubuteInRange @$bubbles.length, 0, 2 * Math.PI
-        velocities = distrubuteInRange @$bubbles.length, 10/1000, 20/1000
+        velocities = distrubuteInRange @$bubbles.length, 20/1000, 40/1000
         @$bubbles.each (idx, bubble) ->
             $bubble = $(bubble)
             cover = randomInRange cover_ratio_min, cover_ratio_max
@@ -54,6 +61,9 @@ export default class Bubblings
                 if entry.isIntersecting then me.go() else me.stop()
         , threshold: .38
         @io.observe @el
+        responsiveHandler '(max-width:768px)',
+            -> me.$bubbles.each () -> $(this).css transform: 'translate(-50%,-50%)'
+            -> me.$bubbles.each () -> $(this).css transform: 'translate(-50%,-50%)'
         @
     stop: () ->
         cancelAnimationFrame @raf

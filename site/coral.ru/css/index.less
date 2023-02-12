@@ -240,7 +240,7 @@
 							.flex-column;
 							padding: 4em 2em;
 							@media screen and (max-width: @mobile-breakpoint) {
-								padding: 2em 0;
+								padding: 0 0 2em;
 							}
 							>*:nth-child(n+2) {
 								margin-top: 5%;
@@ -272,7 +272,8 @@
 								@media screen and (max-width: @mobile-breakpoint) {
 									position: static;
 									transform: translateZ(0)!important;
-									--width: 20em;
+									--width: 100vw;
+									margin-left: -1.5em;
 								}
 								.scene {
 									.abs100x100;

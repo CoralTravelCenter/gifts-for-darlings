@@ -64,16 +64,16 @@ import Bubblings from './Bubblings.coffee'
 
 
 tooltips =
-    valentine:
+    feb14:
         markup: tt_valentine_markup
         options: {}
-    army:
+    feb23:
         markup: tt_army_markup
         options: {}
-    march8:
+    mar8:
         markup: tt_march8_markup
         options: {}
-    'mar27-02':
+    'mar27-apr02':
         markup: tt_mar27_02_markup
         options: {}
     'feb18-26':
@@ -135,3 +135,42 @@ ASAP ->
     $('.icon-art').each (idx, el) -> icons_io.observe el
 
     $('.bubbling').each (idx, el) -> new Bubblings(el)
+
+    $(window).on 'scroll', ->
+        dtop = $('section.destinations').get(0).getBoundingClientRect().top
+        destinations_in_view = dtop < 300
+        footer_in_view = $('.footermaincontainer').get(0).getBoundingClientRect().top < window.innerHeight
+        $('.occassion-selector').toggleClass 'shown', destinations_in_view and not footer_in_view
+
+    $('.occassion-selector li').on 'click', ->
+        $this = $(this)
+        $this.parent().toggleClass 'open'
+        unless $this.hasClass 'selected'
+            $this.addClass('selected').siblings('.selected').removeClass('selected')
+
+    $(document).on 'click', '.country-block [data-group-marker]', ->
+        group_marker = $(this).attr 'data-group-marker'
+        $(".group-filters [data-group='#{ group_marker }']").click()
+
+    $hotels_widgets = $('[id="hotels-set"]').map (idx, el) -> $(el).closest('.widgetcontainer').get(0)
+    $hotels_widgets.each (idx) -> $(this).hide() if idx
+
+    $(document).on 'click', '[data-select-holidays]', ->
+        holidays = $(this).attr 'data-select-holidays'
+        widget_idx = ['feb18-26','feb23','mar8','mar27-apr02'].indexOf holidays
+        $hotels_widgets.each (idx, w) ->
+            if idx == widget_idx
+                iso = $(w).show().find('.cards-grid').data('isotope')
+                iso.layoutItems(iso.items, true)
+                iso.layout()
+            else $(w).hide()
+        $(".occassion-selector [data-select-holidays='#{ holidays }']").addClass('selected').siblings('.selected').removeClass('selected')
+
+#    recent_scrolltop = window.scrollY
+#    recent_timestamp = performance.now()
+#    requestAnimationFrame (timestamp) ->
+#        scroll_velocity = (window.scrollY - recent_scrolltop) / (timestamp - recent_timestamp)
+#        recent_timestamp = timestamp
+#        recent_scrolltop = window.scrollY
+#        $('.glassy').css transform: "translateY(#{ scroll_velocity * 500 })"
+#        requestAnimationFrame arguments.callee

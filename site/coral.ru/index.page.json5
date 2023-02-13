@@ -1,6 +1,7 @@
 {
 //    env: { optimize: false },
     contents: [
-        '/site/coral.ru/components/main.html'
+        '/site/coral.ru/components/main.html',
+        '/site/coral.ru/components/foot.html'
     ]
 }

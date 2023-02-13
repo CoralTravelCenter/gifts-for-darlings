@@ -2,6 +2,7 @@
 //    env: { optimize: false },
     contents: [
         '/site/coral.ru/components/main.html',
-        '/site/coral.ru/components/foot.html'
+        '/site/coral.ru/components/foot.html',
+        '/site/coral.ru/components/message-us.html'
     ]
 }

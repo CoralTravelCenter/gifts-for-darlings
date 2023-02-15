@@ -166,11 +166,5 @@ ASAP ->
             else $(w).hide()
         $(".occassion-selector [data-select-holidays='#{ holidays }']").addClass('selected').siblings('.selected').removeClass('selected')
 
-#    recent_scrolltop = window.scrollY
-#    recent_timestamp = performance.now()
-#    requestAnimationFrame (timestamp) ->
-#        scroll_velocity = (window.scrollY - recent_scrolltop) / (timestamp - recent_timestamp)
-#        recent_timestamp = timestamp
-#        recent_scrolltop = window.scrollY
-#        $('.glassy').css transform: "translateY(#{ scroll_velocity * 500 })"
-#        requestAnimationFrame arguments.callee
+    $(document).on 'click', '[data-ym-reachgoal]', () -> ym?(553380,'reachGoal',$(this).attr('data-ym-reachgoal'))
+    $(document).on 'click', '.card-cell .buttonlike', () -> ym?(553380,'reachGoal','zabr-holidays')

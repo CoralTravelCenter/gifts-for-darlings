@@ -155,8 +155,7 @@ ASAP ->
     $hotels_widgets = $('[id="hotels-set"]').map (idx, el) -> $(el).closest('.widgetcontainer').get(0)
     $hotels_widgets.each (idx) -> $(this).hide() if idx
 
-    $(document).on 'click', '[data-select-holidays]', ->
-        holidays = $(this).attr 'data-select-holidays'
+    doSelectHolidays = (holidays) ->
         widget_idx = ['feb18-26','feb23','mar8','mar27-apr02'].indexOf holidays
         $hotels_widgets.each (idx, w) ->
             if idx == widget_idx
@@ -165,6 +164,11 @@ ASAP ->
                 iso.layout()
             else $(w).hide()
         $(".occassion-selector [data-select-holidays='#{ holidays }']").addClass('selected').siblings('.selected').removeClass('selected')
+
+    $(document).on 'click', '[data-select-holidays]', ->
+        doSelectHolidays $(this).attr 'data-select-holidays'
+
+    doSelectHolidays 'mar8'
 
     $(document).on 'click', '[data-ym-reachgoal]', () -> ym?(553380,'reachGoal',$(this).attr('data-ym-reachgoal'))
     $(document).on 'click', '.card-cell .buttonlike', () -> ym?(553380,'reachGoal','zabr-holidays')

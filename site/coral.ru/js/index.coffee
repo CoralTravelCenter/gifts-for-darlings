@@ -168,7 +168,7 @@ ASAP ->
     $(document).on 'click', '[data-select-holidays]', ->
         doSelectHolidays $(this).attr 'data-select-holidays'
 
-    doSelectHolidays 'mar8'
+    doSelectHolidays 'mar27-apr02'
 
     $(document).on 'click', '[data-ym-reachgoal]', () -> ym?(553380,'reachGoal',$(this).attr('data-ym-reachgoal'))
     $(document).on 'click', '.card-cell .buttonlike', () -> ym?(553380,'reachGoal','zabr-holidays')

@@ -2,10 +2,10 @@
 //    env: { optimize: false },
     contents: [
         '/site/coral.ru/components/main.html',
-        '/site/coral.ru/components/HOTELS-feb18-20.html',
-        '/site/coral.ru/components/HOTELS-feb23.html',
-        '/site/coral.ru/components/HOTELS-mar8.html',
-        '/site/coral.ru/components/HOTELS-mar27-apr02.html',
+        '/site/coral.ru/components/HOTELS-Q2-mar27-apr02.html',
+        '/site/coral.ru/components/HOTELS-Q2-apr08-16.html',
+        '/site/coral.ru/components/HOTELS-Q2-apr29-may01.html',
+        '/site/coral.ru/components/HOTELS-Q2-may06-09.html',
         '/site/coral.ru/components/foot.html',
         '/site/coral.ru/components/message-us.html'
     ]

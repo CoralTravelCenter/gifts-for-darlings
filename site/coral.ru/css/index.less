@@ -264,37 +264,37 @@
 						width: 100%;
 						display: flex;
 						align-items: stretch;
+						margin-top: 4em;
 						@media screen and (max-width: @mobile-breakpoint) {
 						    flex-direction: column!important;
+							//margin-top: 2em;
 						}
 						&:nth-child(odd) {
 							flex-direction: row;
-							.visual-comp .bubbling {
-								left: 50%;
-								top: 50%;
-								transform: translate(-60%,-50%);
-								overflow: hidden;
-							}
 						}
 						&:nth-child(even) {
 							flex-direction: row-reverse;
-							.visual-comp .bubbling {
-								left: 50%;
-								top: 50%;
-								transform: translate(-40%,-50%);
-								overflow: hidden;
-							}
 						}
 						> * {
 							flex: 0 0 50%;
+						}
+						.visual {
+							.proportional(680/480);
+							width: 50%;
+							border-radius: 2em;
+							background: center / cover no-repeat;
+							@media screen and (max-width: @mobile-breakpoint) {
+								width: 100%;
+							}
 						}
 						.info {
 							position: relative;
 							z-index: 1;
 							.flex-column;
-							padding: 4em 2em;
+							justify-content: center;
+							padding: 0 4em;
 							@media screen and (max-width: @mobile-breakpoint) {
-								padding: 0 0 2em;
+								padding: 2em 0 0;
 							}
 							>*:nth-child(n+2) {
 								margin-top: 5%;
@@ -303,61 +303,6 @@
 								font-size: (40/20em);
 								text-align: left;
 								margin-bottom: 0;
-							}
-						}
-						.visual-comp {
-							//background: #abc;
-							//border: 1px solid #000;
-							position: relative;
-							@media screen and (max-width: @mobile-breakpoint) {
-								width: 100%;
-							}
-							.bubbling {
-								//border: 1px solid #000;
-								--overlay: rgb(225, 225, 225);
-								--blur: 32px;
-								--width: 40em;
-								--aspect: (945/638);
-								width: var(--width);
-								height: calc(~"var(--width) / var(--aspect)");
-								position: absolute;
-								background: center / cover no-repeat;
-								mix-blend-mode: multiply;
-								@media screen and (max-width: @mobile-breakpoint) {
-									position: static;
-									transform: translateZ(0)!important;
-									--width: 100vw;
-									margin-left: -1.5em;
-								}
-								.scene {
-									.abs100x100;
-									background: white;
-									mix-blend-mode: screen;
-									.bubble {
-										position: absolute;
-										left: 50%;
-										top: 50%;
-										transform: translate(-50%,-50%);
-										background: black;
-										border-radius: 50%;
-										filter: blur(var(--blur));
-									}
-
-									.overlay {
-										.abs100x100;
-										background: linear-gradient(var(--overlay), var(--overlay));
-										mix-blend-mode: color-dodge;
-									}
-								}
-								.something-glassy {
-									.abs100x100;
-									> * {
-										.proportional(1/1);
-										position: absolute;
-										.etched-glass;
-										border-radius: 50%;
-									}
-								}
 							}
 						}
 					}

@@ -63,7 +63,7 @@ import tt_apr29_may01_markup from 'bundle-text:/site/coral.ru/components/tooltip
 import tt_may06_09_markup from 'bundle-text:/site/coral.ru/components/tooltip-may06-09.html'
 import tt_feb18_26_markup from 'bundle-text:/site/coral.ru/components/tooltip-feb18-26.html'
 
-import Bubblings from './Bubblings.coffee'
+#import Bubblings from './Bubblings.coffee'
 
 
 tooltips =
@@ -146,7 +146,7 @@ ASAP ->
     , threshold: 1.0
     $('.icon-art').each (idx, el) -> icons_io.observe el
 
-    $('.bubbling').each (idx, el) -> new Bubblings(el)
+#    $('.bubbling').each (idx, el) -> new Bubblings(el)
 
     $(window).on 'scroll', ->
         dtop = $('section.destinations').get(0).getBoundingClientRect().top
@@ -164,16 +164,16 @@ ASAP ->
         group_marker = $(this).attr 'data-group-marker'
         $(".group-filters [data-group='#{ group_marker }']").click()
 
-    $hotels_widgets = $('[id="hotels-set"]').map (idx, el) -> $(el).closest('.widgetcontainer').get(0)
+    $hotels_widgets = $('[data-component-instance]').map (idx, el) -> $(el).closest('.widgetcontainer').get(0)
     $hotels_widgets.each (idx) -> $(this).hide() if idx
 
     doSelectHolidays = (holidays) ->
-        widget_idx = ['feb18-26','feb23','mar8','mar27-apr02'].indexOf holidays
+        widget_idx = ['mar27-apr02','apr08-16','apr29-may01','may06-09'].indexOf holidays
         $hotels_widgets.each (idx, w) ->
             if idx == widget_idx
                 iso = $(w).show().find('.cards-grid').data('isotope')
-                iso.layoutItems(iso.items, true)
-                iso.layout()
+                iso?.layoutItems?(iso.items, true)
+                iso?.layout?()
             else $(w).hide()
         $(".occassion-selector [data-select-holidays='#{ holidays }']").addClass('selected').siblings('.selected').removeClass('selected')
 

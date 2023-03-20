@@ -58,6 +58,9 @@ import tt_valentine_markup from 'bundle-text:/site/coral.ru/components/tooltip-v
 import tt_army_markup from 'bundle-text:/site/coral.ru/components/tooltip-army.html'
 import tt_march8_markup from 'bundle-text:/site/coral.ru/components/tooltip-march8.html'
 import tt_mar27_02_markup from 'bundle-text:/site/coral.ru/components/tooltip-mar27-02.html'
+import tt_apr08_16_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr08-16.html'
+import tt_apr29_may01_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr29-may01.html'
+import tt_may06_09_markup from 'bundle-text:/site/coral.ru/components/tooltip-may06-09.html'
 import tt_feb18_26_markup from 'bundle-text:/site/coral.ru/components/tooltip-feb18-26.html'
 
 import Bubblings from './Bubblings.coffee'
@@ -70,14 +73,23 @@ tooltips =
     feb23:
         markup: tt_army_markup
         options: {}
+    'feb18-26':
+        markup: tt_feb18_26_markup
+        options: {}
     mar8:
         markup: tt_march8_markup
         options: {}
     'mar27-apr02':
         markup: tt_mar27_02_markup
         options: {}
-    'feb18-26':
-        markup: tt_feb18_26_markup
+    'apr08-16':
+        markup: tt_apr08_16_markup
+        options: {}
+    'apr29-may01':
+        markup: tt_apr29_may01_markup
+        options: {}
+    'may06-09':
+        markup: tt_may06_09_markup
         options: {}
 
 ASAP ->

@@ -176,13 +176,16 @@
 								cursor: default;
 							}
 							span.hilite {
-								background: #DCE7FB;
+								//background: #DCE7FB;
+								background: linear-gradient(45.62deg, #00B2FC 0%, #B379FE 100%);
+								color: white;
 								padding: .5em 0;
 								border-radius: .5em;
 								cursor: pointer;
 								.transit(background);
 								&.hovered {
-									background-color: #bfd2f5;
+									//background-color: #bfd2f5;
+									background: linear-gradient(45.62deg, #0060ff 0%, #7700ff 100%);
 								}
 							}
 							span.weekdays {
@@ -732,7 +735,7 @@ body .subpage-search-bg {
 					transform: translateX(-682px);
 					height: 100%;
 					width: 35em;
-					padding: 13% 0 5%;
+					padding: 8% 0 5%;
 					color: white;
 					.fluid-fontsize(1.5vw);
 					font-weight: normal;
@@ -759,10 +762,10 @@ body .subpage-search-bg {
 						}
 					}
 					>*:nth-child(n+2) {
-						margin-top: 10%;
+						margin-top: 5%;
 						margin-bottom: 0;
 						@media screen and (max-width: @mobile-breakpoint) {
-							margin-top: 10%;
+							margin-top: 5%;
 						}
 					}
 					h2, h3, h4 {
@@ -779,6 +782,39 @@ body .subpage-search-bg {
 						@media screen and (max-width: @mobile-breakpoint) {
 							font-size: 1.7em;
 							text-align: center;
+						}
+					}
+					>ul {
+						display: flex;
+						padding: 0;
+						>li {
+							display: flex;
+							align-items: center;
+							line-height: 1.2;
+							font-size: (14/20em);
+							@media screen and (max-width: @mobile-breakpoint) {
+							    flex-direction: column;
+								text-align: center;
+							}
+							&:nth-child(n+2) {
+								margin-left: 1em;
+							}
+							&:nth-child(1):before {
+								background-image: url(data-url:/site/coral.ru/assets-inline/msg-icon-01.svg);
+							}
+							&:nth-child(2):before {
+								background-image: url(data-url:/site/coral.ru/assets-inline/msg-icon-02.svg);
+							}
+							&:nth-child(3):before {
+								background-image: url(data-url:/site/coral.ru/assets-inline/msg-icon-03.svg);
+							}
+							&:before {
+								content: '';
+								width: 4em;
+								height: 4em;
+								margin-right: 0.5em;
+								background: center / contain no-repeat;
+							}
 						}
 					}
 				}

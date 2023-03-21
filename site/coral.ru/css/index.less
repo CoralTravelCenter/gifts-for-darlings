@@ -278,6 +278,108 @@
 						> * {
 							flex: 0 0 50%;
 						}
+						&[data-country='turkey'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (213/680) * 100%;
+								position: absolute;
+								left: 7%;
+								top: -26%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									top: 74%;
+									left: 86%;
+								}
+							}
+						}
+						&[data-country='uae'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (113/680) * 100%;
+								position: absolute;
+								top: 70%;
+								left: -7%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									top: 8%;
+									left: -6%;
+								}
+							}
+						}
+						&[data-country='bahrain'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (169/680) * 100%;
+								position: absolute;
+								top: -11%;
+								left: -11%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									top: -23%;
+									left: 72%;
+								}
+							}
+						}
+						&[data-country='egypt'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (155/680) * 100%;
+								position: absolute;
+								top: -16%;
+								left: 10%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									width: (210/680) * 100%;
+									top: 7%;
+									left: -13%;
+								}
+							}
+						}
+						&[data-country='tailand'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (182/680) * 100%;
+								position: absolute;
+								top: -21%;
+								left: 58%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									width: (143/680) * 100%;
+									top: -16%;
+									left: 72%;
+								}
+							}
+						}
+						&[data-country='srilanka'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (174/680) * 100%;
+								position: absolute;
+								top: 6%;
+								left: 80%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									width: (183/680) * 100%;
+									top: 12%;
+									left: -10%;
+								}
+							}
+						}
+						&[data-country='maldives'] {
+							.glassy {
+								.etched-glass();
+								.proportional(1/1);
+								width: (182/680) * 100%;
+								position: absolute;
+								top: -13%;
+								left: 5%;
+								@media screen and (max-width: @mobile-breakpoint) {
+									width: (200/680) * 100%;
+									top: -18%;
+									left: 76%;
+								}
+							}
+						}
 						.visual {
 							.proportional(680/480);
 							width: 50%;
@@ -285,6 +387,7 @@
 							background: center / cover no-repeat;
 							@media screen and (max-width: @mobile-breakpoint) {
 								width: 100%;
+								border-radius: 1em;
 							}
 						}
 						.info {
@@ -579,10 +682,11 @@
 					}
 					p {
 						margin-bottom: 0;
-						text-align: center;
+						padding: 0 2em;
 						@media screen and (max-width: @mobile-breakpoint) {
 							text-align: left;
 							margin-top: 2em;
+							padding: 0;
 						}
 					}
 				}

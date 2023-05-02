@@ -168,7 +168,7 @@ ASAP ->
     $hotels_widgets.each (idx) -> $(this).hide() if idx
 
     doSelectHolidays = (holidays) ->
-        widget_idx = ['apr29-may01','may06-09'].indexOf holidays
+        widget_idx = ['may06-09'].indexOf holidays
         $hotels_widgets.each (idx, w) ->
             if idx == widget_idx
                 iso = $(w).show().find('.cards-grid').data('isotope')
@@ -180,7 +180,7 @@ ASAP ->
     $(document).on 'click', '[data-select-holidays]', ->
         doSelectHolidays $(this).attr 'data-select-holidays'
 
-    doSelectHolidays 'apr29-may01'
+    doSelectHolidays 'may06-09'
 
     $(document).on 'click', '[data-ym-reachgoal]', () -> ym?(553380,'reachGoal',$(this).attr('data-ym-reachgoal'))
     $(document).on 'click', '.card-cell .buttonlike', () -> ym?(553380,'reachGoal','zabr-holidays')

@@ -2,7 +2,14 @@
 //    env: { optimize: false },
     contents: [
         '/site/coral.ru/components/main.html',
-        '/site/coral.ru/components/HOTELS-Q2-may06-09.html',
+        '/site/coral.ru/hotels/HOTELS-feb14.html',
+        '/site/coral.ru/hotels/HOTELS-feb17-25.html',
+        '/site/coral.ru/hotels/HOTELS-feb23.html',
+        '/site/coral.ru/hotels/HOTELS-mar8.html',
+        '/site/coral.ru/hotels/HOTELS-mar25-31.html',
+        '/site/coral.ru/hotels/HOTELS-apr8-14.html',
+        '/site/coral.ru/hotels/HOTELS-apr28-may1.html',
+        '/site/coral.ru/hotels/HOTELS-may9-12.html',
         '/site/coral.ru/components/foot.html',
         '/site/coral.ru/components/message-us.html'
     ]

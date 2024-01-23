@@ -126,10 +126,13 @@
 				.months-wrap {
 					width: 100%;
 					display: flex;
-					justify-content: space-around;
+					flex-wrap: wrap;
+					justify-content: center;
+					max-width: 45em;
 					@media screen and (max-width: @mobile-breakpoint) {
 						flex-direction: column;
 						align-items: center;
+						max-width: unset;
 					}
 					.month {
 						flex: 0 0 auto;
@@ -177,15 +180,21 @@
 							}
 							span.hilite {
 								//background: #DCE7FB;
-								background: linear-gradient(45.62deg, #00B2FC 0%, #B379FE 100%);
-								color: white;
+								//background: linear-gradient(45.62deg, #00B2FC 0%, #B379FE 100%);
+								background: #B5F9E4;
+								//color: white;
 								padding: .5em 0;
 								border-radius: .5em;
 								cursor: pointer;
 								.transit(background);
+								&.school {
+									background: #DCE7FB;
+								}
 								&.hovered {
 									//background-color: #bfd2f5;
-									background: linear-gradient(45.62deg, #0060ff 0%, #7700ff 100%);
+									//background: linear-gradient(45.62deg, #0060ff 0%, #7700ff 100%);
+									background: linear-gradient(45.62deg, #00B2FC 0%, #B379FE 100%);
+									color: white;
 								}
 							}
 							span.weekdays {
@@ -306,7 +315,7 @@
 								}
 							}
 						}
-						&[data-country='bahrain'] {
+						&[data-country='cuba'] {
 							.glassy {
 								.etched-glass();
 								.proportional(1/1);
@@ -383,8 +392,9 @@
 						.visual {
 							.proportional(680/480);
 							width: 50%;
-							border-radius: 2em;
+							border-radius: 1em;
 							background: center / cover no-repeat;
+							box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0px 6px 16px 0px rgba(0, 0, 0, 0.08);
 							@media screen and (max-width: @mobile-breakpoint) {
 								width: 100%;
 								border-radius: 1em;
@@ -469,7 +479,7 @@
 						.flex-column;
 						padding: 4em 2em;
 						@media screen and (max-width: @mobile-breakpoint) {
-							padding: 0 0 2em;
+							padding: 2em 0 2em;
 						}
 						>*:nth-child(n+2) {
 							margin-top: 5%;
@@ -482,11 +492,18 @@
 					}
 					.visual-comp {
 						position: relative;
-						background: url("/site/coral.ru/assets/cert-visual-composed.jpg") center / contain no-repeat;
+						//background: url("/site/coral.ru/assets/cert-visual-composed.jpg") center / contain no-repeat;
 						@media screen and (max-width: @mobile-breakpoint) {
 							width: 100%;
-							height: 22em;
+							//height: 22em;
+							height: 13em;
 							flex-basis: auto;
+						}
+						>img {
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							width: 100%;
 						}
 						.bubbling {
 							//border: 1px solid #000;
@@ -556,10 +573,12 @@
 					background: white;
 					box-shadow: 0px -12px 26px rgba(14, 37, 57, 0.1), 0px 0px 0px rgba(14, 37, 57, 0.1);
 					opacity: 0;
+					font-size: 75%;
 					transform: translateY(100%);
 					.transit(opacity, .4s);
 					.transit(transform);
 					@media screen and (max-width: @mobile-breakpoint) {
+						font-size: 100%;
 						position: static;
 					    flex-direction: column;
 						align-items: flex-start;
@@ -744,14 +763,14 @@ body .subpage-search-bg {
 			.proportional(1920/711);
 			width: 100%;
 			@media screen and (max-width: @mobile-breakpoint) {
-				.proportional(720/1120);
+				.proportional(768/960);
 			}
 
 			.backdrop {
-				background: url("/site/coral.ru/assets/intro-desktop.jpg") center no-repeat;
+				background: url(/site/coral.ru/assets/intro-2024-desktop.jpg) center no-repeat;
 				background-size: cover;
 				@media screen and (max-width: @mobile-breakpoint) {
-					background-image: url(/site/coral.ru/assets/intro-mobile.jpg);
+					background-image: url(/site/coral.ru/assets/intro-2024-mobile.jpg);
 				}
 			}
 
@@ -785,7 +804,7 @@ body .subpage-search-bg {
 					height: 100%;
 					width: 35em;
 					padding: 8% 0 5%;
-					color: white;
+					color: #033870;
 					.fluid-fontsize(1.5vw);
 					font-weight: normal;
 					@media screen and (max-width: 1439px) {
@@ -826,10 +845,11 @@ body .subpage-search-bg {
 						display: inline-flex;
 						align-items: center;
 						text-align: left;
-						font-size: (56/21em);
+						font-size: (60/21em);
+						font-weight: 300;
 						line-height: 1;
 						@media screen and (max-width: @mobile-breakpoint) {
-							font-size: 1.7em;
+							font-size: 2em;
 							text-align: center;
 						}
 					}

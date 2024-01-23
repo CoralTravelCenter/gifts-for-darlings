@@ -57,39 +57,39 @@ window.DEBUG = 'APP NAME'
 import tt_valentine_markup from 'bundle-text:/site/coral.ru/components/tooltip-valentine.html'
 import tt_army_markup from 'bundle-text:/site/coral.ru/components/tooltip-army.html'
 import tt_march8_markup from 'bundle-text:/site/coral.ru/components/tooltip-march8.html'
-import tt_mar27_02_markup from 'bundle-text:/site/coral.ru/components/tooltip-mar27-02.html'
-import tt_apr08_16_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr08-16.html'
-import tt_apr29_may01_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr29-may01.html'
-import tt_may06_09_markup from 'bundle-text:/site/coral.ru/components/tooltip-may06-09.html'
-import tt_feb18_26_markup from 'bundle-text:/site/coral.ru/components/tooltip-feb18-26.html'
+
+import tt_feb17_25_markup from 'bundle-text:/site/coral.ru/components/tooltip-feb17-25.html'
+import tt_mar25_31_markup from 'bundle-text:/site/coral.ru/components/tooltip-mar25-31.html'
+import tt_apr8_14_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr8-14.html'
+import tt_apr28_may1_markup from 'bundle-text:/site/coral.ru/components/tooltip-apr28-may1.html'
+import tt_may9_12_markup from 'bundle-text:/site/coral.ru/components/tooltip-may9-12.html'
 
 #import Bubblings from './Bubblings.coffee'
-
 
 tooltips =
     feb14:
         markup: tt_valentine_markup
         options: {}
+    'feb17-25':
+        markup: tt_feb17_25_markup
+        options: {}
     feb23:
         markup: tt_army_markup
-        options: {}
-    'feb18-26':
-        markup: tt_feb18_26_markup
         options: {}
     mar8:
         markup: tt_march8_markup
         options: {}
-    'mar27-apr02':
-        markup: tt_mar27_02_markup
+    'mar25-31':
+        markup: tt_mar25_31_markup
         options: {}
-    'apr08-16':
-        markup: tt_apr08_16_markup
+    'apr8-14':
+        markup: tt_apr8_14_markup
         options: {}
-    'apr29-may01':
-        markup: tt_apr29_may01_markup
+    'apr28-may1':
+        markup: tt_apr28_may1_markup
         options: {}
-    'may06-09':
-        markup: tt_may06_09_markup
+    'may9-12':
+        markup: tt_may9_12_markup
         options: {}
 
 ASAP ->
@@ -168,7 +168,7 @@ ASAP ->
     $hotels_widgets.each (idx) -> $(this).hide() if idx
 
     doSelectHolidays = (holidays) ->
-        widget_idx = ['may06-09'].indexOf holidays
+        widget_idx = ['feb14','feb17-25','feb23','mar8','mar25-31','apr8-14','apr28-may1','may9-12'].indexOf holidays
         $hotels_widgets.each (idx, w) ->
             if idx == widget_idx
                 iso = $(w).show().find('.cards-grid').data('isotope')
@@ -180,7 +180,7 @@ ASAP ->
     $(document).on 'click', '[data-select-holidays]', ->
         doSelectHolidays $(this).attr 'data-select-holidays'
 
-    doSelectHolidays 'may06-09'
+    doSelectHolidays 'feb14'
 
     $(document).on 'click', '[data-ym-reachgoal]', () -> ym?(553380,'reachGoal',$(this).attr('data-ym-reachgoal'))
     $(document).on 'click', '.card-cell .buttonlike', () -> ym?(553380,'reachGoal','zabr-holidays')

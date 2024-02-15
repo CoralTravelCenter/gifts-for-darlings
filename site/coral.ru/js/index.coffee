@@ -168,7 +168,7 @@ ASAP ->
     $hotels_widgets.each (idx) -> $(this).hide() if idx
 
     doSelectHolidays = (holidays) ->
-        widget_idx = ['feb14','feb17-25','feb23','mar8','mar25-31','apr8-14','apr28-may1','may9-12'].indexOf holidays
+        widget_idx = [###'feb14',###'feb17-25','feb23','mar8','mar25-31','apr8-14','apr28-may1','may9-12'].indexOf holidays
         $hotels_widgets.each (idx, w) ->
             if idx == widget_idx
                 iso = $(w).show().find('.cards-grid').data('isotope')

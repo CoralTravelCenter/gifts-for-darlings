@@ -2,7 +2,7 @@
 //    env: { optimize: false },
     contents: [
         '/site/coral.ru/components/main.html',
-        '/site/coral.ru/hotels/HOTELS-feb14.html',
+//        '/site/coral.ru/hotels/HOTELS-feb14.html',
         '/site/coral.ru/hotels/HOTELS-feb17-25.html',
         '/site/coral.ru/hotels/HOTELS-feb23.html',
         '/site/coral.ru/hotels/HOTELS-mar8.html',
